@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('member_id');
+            $table->unsignedBigInteger('employee_id');
             $table->string('name');
             $table->string('labor_tailor');
             $table->string('labor_cutter');
@@ -27,6 +28,9 @@ return new class extends Migration
             $table->string('category');
             $table->timestamps();
             $table->foreign('member_id')->on('members')->references('id')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
+            $table->foreign('employee_id')->on('employees')->references('id')
             ->onDelete('CASCADE')
             ->onUpdate('CASCADE');
         });

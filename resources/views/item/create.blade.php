@@ -30,8 +30,12 @@
                         <div class="form-group">
                           <h5> Tailor Assigned <span class="required"></span></h5>
                                 <div class="controls">
-                                <input type="text" name="labor_tailor" class="form-control mb-1" required data-validation-required-message="• This field is required">
-                                 </div>
+                                <select name="labor_tailor" id="lang" class="form-control"  >
+                                    @foreach($employees as $employees)   
+                                      <option value="{{$employees['firstname']}}">{{$employees['firstname']}},{{$employees['lastname']}},{{$employees['role']}},</option>
+                                    @endforeach 
+                                </select>
+                                </div>
                          </div>
 
                          <div class="form-group">
@@ -79,8 +83,11 @@
                          <div class="form-group">
                           <h5> Category <span class="required"></span></h5>
                                 <div class="controls">
-                                    <input type="text" name="category" class="form-control mb-1" >
-                                 </div>
+                                <select name="category" id="lang" class="form-control"  >
+                                    @foreach($categories as $categories)   
+                                      <option value="{{$categories['name']}}">{{$categories['name']}}</option>
+                                    @endforeach 
+                                    </select></div>
                          </div>
      
                             </div>

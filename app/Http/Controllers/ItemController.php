@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Member;
+use App\Models\Category;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -102,7 +104,9 @@ class ItemController extends Controller
     {
         //
         $members = Member::all();
-        return view('item.create', compact('members'));
+        $employees = Employee::all();
+        $categories = Category::all();
+        return view('item.create', compact('members','employees','categories'));
     }
 
     /**
