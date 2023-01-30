@@ -32,3 +32,8 @@ Route::post('/employee/registered', [App\Http\Controllers\EmployeeController::cl
 Route::get('/category/show', [App\Http\Controllers\CategoryController::class, 'category_show'])->name('category.show');
 Route::get('/category/create', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.create');
 Route::post('/category/registered', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.post');
+
+
+
+
+Route::get('/test', [App\Http\Controllers\ItemController::class, 'test'])->name('test.show');

@@ -65,6 +65,17 @@ class ItemController extends Controller
             'required' => 'This field is required!'
              ];
        
+             $request->validate([
+             'name'=>'required',
+             'shirt_name'=>'required',
+             'shirt_number'=>'required',   
+             ],$message);
+             Member::create([
+                'name'=> $request->name,
+                'shirt_name'=> $request->shirt_name,
+                'shirt_number'=> $request->shirt_number,
+                ]);
+
             $request->validate([     
             'member_id'=>'required', 
             'name'=>'required',
@@ -141,5 +152,14 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         //
+    }
+
+    public function test()
+    {
+        
+        $members = Member::all();
+        $employees = Employee::all();
+        $categories = Category::all();
+        return view('item.create', compact('members','employees','categories'));
     }
 }
